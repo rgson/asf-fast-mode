@@ -25,6 +25,7 @@ cmd() {
 # Start bot without automatically idling
 cmd start $ASF_BOT
 cmd pause $ASF_BOT
+sleep 1 # TODO: handle 'not connected' error after start (delayed login?)
 
 #while :; do
 
