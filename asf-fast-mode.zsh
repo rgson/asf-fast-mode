@@ -27,7 +27,7 @@ cmd start $ASF_BOT
 cmd pause $ASF_BOT
 sleep 1 # TODO: handle 'not connected' error after start (delayed login?)
 
-#while :; do
+while :; do
 
 	# Find games with available card drops
 	log "Checking for games with remaining card drops"
@@ -41,12 +41,12 @@ sleep 1 # TODO: handle 'not connected' error after start (delayed login?)
 	# Idle games simultaneously for 30 minutes
 	log "Idling $(wc -l <<<$appids) games for 30 minutes"
 	cmd play $ASF_BOT ${(j.,.)${(f)appids}}
-	sleep 10 #1800
+	sleep 1800
 
 	# Pause for 1 minute
 	log "Pausing for 1 minute"
 	cmd reset
-	sleep 10 # 60
+	sleep 60
 
 	# Idle individually for 10 seconds
 	while read -r appid; do
@@ -55,4 +55,4 @@ sleep 1 # TODO: handle 'not connected' error after start (delayed login?)
 		sleep 10
 	done <<<$appids
 
-#done
+done
