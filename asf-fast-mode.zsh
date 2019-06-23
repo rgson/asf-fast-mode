@@ -1,7 +1,7 @@
 #!/usr/bin/zsh
 
 ASF_AUTH=${ASF_AUTH:-''}
-ASF_BOT=${ASF_BOT:-'bot'}
+ASF_BOT=${ASF_BOT:-''}
 ASF_URL=${ASF_URL:-'http://localhost:1242'}
 
 terminate() { exit 0; }
