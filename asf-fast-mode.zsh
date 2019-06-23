@@ -44,10 +44,8 @@ cmd pause $ASF_BOT
 
 	# Pause for 1 minute
 	log "Pausing for 1 minute"
-	cmd stop $ASF_BOT
+	cmd play $ASF_BOT 1111 # Work-around, no manual-mode pause command
 	sleep 10 # 60
-	cmd start $ASF_BOT
-	cmd pause $ASF_BOT
 
 	# Idle individually for 10 seconds
 	while read -r appid; do
