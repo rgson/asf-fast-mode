@@ -45,7 +45,7 @@ sleep 1 # TODO: handle 'not connected' error after start (delayed login?)
 
 	# Pause for 1 minute
 	log "Pausing for 1 minute"
-	cmd play $ASF_BOT 1111 # Work-around, no manual-mode pause command
+	cmd reset
 	sleep 10 # 60
 
 	# Idle individually for 10 seconds
