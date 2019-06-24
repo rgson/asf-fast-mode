@@ -37,16 +37,15 @@ while :; do
 	cmd pause $ASF_BOT
 	appids=$(get bot/$ASF_BOT |
 		jq -S ".Result.${ASF_BOT}.CardsFarmer.GamesToFarm|.[]|.AppID")
-	log "Found $(wc -l <<<$appids) games to idle"
-
-	# If we get no matches, retry later in case it's just an error
 	if [[ -z $appids ]]; then
+		# If we get no matches, retry later in case it's just an error
 		(( retries++ < 3)) || break
 		log "No games to idle. Retrying in 10 minutes..."
 		sleep 600
 		continue
 	fi
 	retries=0
+	log "Found $(wc -l <<<$appids) games to idle"
 
 	# Limit to 32 games at a time (the Steam network's limit)
 	appids=$(head -n32 <<<$appids)
