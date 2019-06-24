@@ -38,6 +38,11 @@ while :; do
 		jq -S ".Result.${ASF_BOT}.CardsFarmer.GamesToFarm|.[]|.AppID")
 	log "Found $(wc -l <<<$appids) games to idle"
 
+	if [ -z $appids ]; then
+		sleep 600 # Check again in 10 minutes
+		continue
+	fi
+
 	# Limit to 32 games at a time (the Steam network's limit)
 	appids=$(head -n32 <<<$appids)
 
