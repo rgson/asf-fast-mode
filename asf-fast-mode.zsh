@@ -27,6 +27,7 @@ cmd start $ASF_BOT
 cmd pause $ASF_BOT
 sleep 1 # TODO: handle 'not connected' error after start (delayed login?)
 
+retries=0
 while :; do
 
 	# Find games with available card drops
@@ -38,10 +39,14 @@ while :; do
 		jq -S ".Result.${ASF_BOT}.CardsFarmer.GamesToFarm|.[]|.AppID")
 	log "Found $(wc -l <<<$appids) games to idle"
 
-	if [ -z $appids ]; then
-		sleep 600 # Check again in 10 minutes
+	# If we get no matches, retry later in case it's just an error
+	if [[ -z $appids ]]; then
+		(( retries++ < 3)) || break
+		log "No games to idle. Retrying in 10 minutes..."
+		sleep 600
 		continue
 	fi
+	retries=0
 
 	# Limit to 32 games at a time (the Steam network's limit)
 	appids=$(head -n32 <<<$appids)
@@ -64,3 +69,5 @@ while :; do
 	done <<<$appids
 
 done
+
+log "Done!"
