@@ -31,6 +31,9 @@ while :; do
 
 	# Find games with available card drops
 	log "Checking for games with remaining card drops"
+	cmd resume $ASF_BOT
+	sleep 10 # Wait for updated card counts
+	cmd pause $ASF_BOT
 	appids=$(get bot/$ASF_BOT |
 		jq -S ".Result.${ASF_BOT}.CardsFarmer.GamesToFarm|.[]|.AppID")
 	log "Found $(wc -l <<<$appids) games to idle"
