@@ -54,14 +54,15 @@ ASF_BOT=MyBot ASF_AUTH=MyIPCPassword ./asf-fast-mode.zsh
 
 ### Prerequisites
 
-ASF Fast Mode is implemented as a `zsh` shell script and thus requires [zsh].
-It is easily installed on all mainstream Linux distros.
+- [`curl`](https://packages.debian.org/stable/curl)
+- [`jq`](https://packages.debian.org/stable/jq)
+- [`zsh`](https://packages.debian.org/stable/zsh)
 
 
+<!-- References -->
 [ArchiSteamFarm]: https://github.com/JustArchiNET/ArchiSteamFarm
 [FastMode]: https://steamcommunity.com/groups/idlemastery/discussions/0/1485487749771924917/#c1485487749771945429
 [CardIdleRemastered]: https://github.com/AlexanderSharykin/CardIdleRemastered
 [IdleMasterExtended]: https://github.com/JonasNilson/idle_master_extended/releases
 [ASF-Setup]: https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up
 [ASF-Docker]: https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker
-[zsh]: https://en.wikipedia.org/wiki/Z_shell
