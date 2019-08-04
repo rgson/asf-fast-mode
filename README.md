@@ -23,6 +23,9 @@ docker container run -it --rm         \
   asf-fast-mode
 ```
 
+Your Steam ID can be found with e.g. [this tool][SteamIDFinder], where it is
+listed as `steamID64`.
+
 ### Advanced
 
 ASF Fast Mode can also be configured to run against an existing, separate
@@ -84,3 +87,4 @@ ASF_BOT=MyBot ASF_AUTH=MyIPCPassword ./asf-fast-mode.zsh
 [IdleMasterExtended]: https://github.com/JonasNilson/idle_master_extended/releases
 [ASF-Setup]: https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Setting-up
 [ASF-Docker]: https://github.com/JustArchiNET/ArchiSteamFarm/wiki/Docker
+[SteamIDFinder]: https://steamidfinder.com/
