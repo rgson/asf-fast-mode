@@ -10,13 +10,31 @@ the other alternatives.
 
 ## Usage
 
+### Basic
+
+Basic use can be achieved by running a single Docker image. It requires no
+further configuration and is the fastest way to get started.
+
+```sh
+make docker
+docker container run -it --rm         \
+  -e ASFFM_STEAM_ID=12345678901234567 \  # Replace with your Steam ID
+  -e ASFFM_STEAM_LOGIN=MySteamLogin   \  # Replace with your Steam username
+  asf-fast-mode
+```
+
+### Advanced
+
+ASF Fast Mode can also be configured to run against an existing, separate
+instance of ASF.
+
 1. [Install and configure ASF][ASF-Setup] (or use the [Docker][ASF-Docker]
    image). At least one bot must be configured, IPC must be enabled and an IPC
    password must be set.
 2. Start ASF.
 3. Start **ASF Fast Mode** with the appropriate environmental variables set.
 
-### Example
+#### Example
 
 This example runs ASF Fast Mode against an ASF Docker container.
 
@@ -52,7 +70,7 @@ docker run -it --rm -u $(id -u):$(id -g) \
 ASF_BOT=MyBot ASF_AUTH=MyIPCPassword ./asf-fast-mode.zsh
 ```
 
-### Prerequisites
+#### Prerequisites
 
 - [`curl`](https://packages.debian.org/stable/curl)
 - [`jq`](https://packages.debian.org/stable/jq)
