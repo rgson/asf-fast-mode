@@ -1,0 +1,5 @@
+.dockerignore
+.local
+Dockerfile
+Makefile
+README.md
